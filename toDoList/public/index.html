@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toDoList</title>
+    <link href="html/css/bootstrap.css" rel="stylesheet">
+    <link href="html/css/plugins/morris.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/sweetalert.css">
+    <script src="javascripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="javascripts/lists.js"></script>
+    <script type="text/javascript" src="html/js/bootstrap.js"></script>
+    <script src="dist/sweetalert-dev.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(window).bind('beforeunload',function(){
+        alert("Goodbye!");
+    });
+</script>
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">ToDoList</a>
+            <a class="navbar-brand" id="click_to_add" href="#">添加事项</a>
+            <a class="navbar-brand" id="click_to_list" href="#">查看事项</a>
+            <a class="navbar-brand" id="click_to_reg" href="#">注册</a>
+            <a class="navbar-brand" id="click_to_login" href="#">登录</a>
+            <a class="navbar-brand" id="click_to_logout" href="#">登出</a>
+        </div>
+    </nav>
+
+    <div id="user_login">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div style="margin-top: 12%; width: 100%;">
+                        <div class="panel panel-default" style="width: 30%; margin: 0px auto;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" style=""><i class="fa fa-money fa-fw"></i>登录</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="form-group col-lg-12">
+                                            <label>用户名 :</label>
+                                            <input type="text" id="username" name="username" class="form-control">
+                                            <label id="user_exist" style="color:red; display: none;"></label>
+                                            <label id="user_ok" style="color:green; display: none;"></label>
+                                        </div>
+                                        <br />
+                                        <div class="form-group col-lg-12">
+                                            <label>密码 :</label>
+                                            <input type="password" id="password" name="password" class="form-control">
+                                        </div>
+                                        <br />
+                                        <div class="form-group col-lg-12">
+                                            <input type="hidden" value="contact">
+                                            <button id="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                                        </div>
+                                        <div class="form-group col-lg-12">
+                                            <label id="exist" style="color:red; display: none;"></label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user_reg" style="display: none">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div style="margin-top: 10%; width: 100%;">
+                        <div class="panel panel-default" style="width: 30%; margin: 0px auto;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>注册</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="form-group col-lg-12">
+                                            <label>用户名 :</label>
+                                            <input type="text" id="reg_username" name="username" class="form-control">
+                                            <label id="reg_user_check" style="color:red; display: none;"></label>
+                                            <label id="reg_user_ok" style="color:green; display: none;"></label>
+                                        </div>
+                                        <br />
+                                        <div class="form-group col-lg-12">
+                                            <label>密码 :</label>
+                                            <input type="password" id="reg_password" name="password" class="form-control">
+                                        </div>
+                                        <br />
+                                        <div class="form-group col-lg-12">
+                                            <label>确认密码 :</label>
+                                            <input type="password" id="reg_password_again" name="password" class="form-control">
+                                            <label id="insure_password" style="color:red; display: none;">两次密码输入不一致</label>
+                                        </div>
+                                        <br />
+                                        <div class="form-group col-lg-12">
+                                            <input type="hidden" value="contact">
+                                            <button id="reg_submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                                        </div>
+                                        <div class="form-group col-lg-12">
+                                            <label id="reg_exist" style="color: red; display: none"></label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="list" style="display: none">
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div style="margin: 60px 30px 30px 30px">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>事项记录</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped" style="width: 100%">
+                                        <thead>
+                                        <tr>
+                                            <th width="40%">事项内容</th>
+                                            <th width="10%">创建时间</th>
+                                            <th>DeadLine</th>
+                                            <th>状态</th>
+                                            <th>点击完成</th>
+                                            <th width="10px">删除</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="thing_list">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="add_list" style="display: none">
+        <!--<div id="page-wrapper">-->
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div style="margin-top: 10%; width: 100%;">
+                    <div class="panel panel-default" style="width: 30%; margin: 0px auto;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>添加事项</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>事项内容:</label>
+                                        <textarea id="add_thing" type="text" name="thing" class="form-control"></textarea>
+                                        <label id="add_user_check" style="color: red; display: none"></label>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-lg-12">
+                                        <label>Deadline :</label>
+                                        <input type="date" id="add_deadline" name="deadline" class="form-control">
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-lg-12">
+                                        <input type="hidden" name="save" value="contact">
+                                        <button id="add_submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-lg-12">
+                                        <label id="add_check" style="color: red; display: none"></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
