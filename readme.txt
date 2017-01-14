@@ -22,6 +22,3 @@ routes目录为后端代码所对应目录，list.js和user.js为主要逻辑代码，分为事项操作和用
 
 services目录为数据库操作的封装，list.js和user.js为主要逻辑代码，对应于数据库的list和user表
 
-
-辛苦助教学姐了~~
-
