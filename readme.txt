@@ -1,24 +1,24 @@
-ToDoList��ҵ
-��������Ϊwindows10
-���з�ʽ������Ŀ��ǰ·���½���cmd����������  node bin/www
+基于Nodejs的ToDoList作业
+开发环境为windows10
+运行方式：在项目当前路径下进入cmd，输入命令  node bin/www
 
-��ҵ��ɵ���Ҫ�����е�¼���ǳ���ע�ᣬ����鿴���޸�״̬��ɾ�������������
+作业完成的主要功能有登录，登出，注册，事项查看，修改状态，删除事项，添加事项
 
-1���˿ڣ�Ĭ�϶˿� 3000
+1、端口：默认端口 3000
 
-2�����ݿ�
-���ݿ⹲���ű����û�����user�ʹ����������list
+2、数据库
+数据库共两张表，用户表：user和待办事项表：list
 
-���ݿ��������û��У�
-�û�����lala  ���룺lala
-�û�����haha  ���룺haha
+数据库中已有用户有：
+用户名：lala  密码：lala
+用户名：haha  密码：haha
 
-���е�����Ϊ�û���Ϊlala��haha�Ĵ�������
+已有的事项为用户名为lala和haha的待办事项
 
-3������
-publicĿ¼Ϊǰ�˴�������ӦĿ¼��javascripts/list.jsΪ��Ҫ�߼�����
+3、代码
+public目录为前端代码所对应目录，javascripts/list.js为主要逻辑代码
 
-routesĿ¼Ϊ��˴�������ӦĿ¼��list.js��user.jsΪ��Ҫ�߼����룬��Ϊ����������û�����
+routes目录为后端代码所对应目录，list.js和user.js为主要逻辑代码，分为事项操作和用户操作
 
-servicesĿ¼Ϊ���ݿ�����ķ�װ��list.js��user.jsΪ��Ҫ�߼����룬��Ӧ�����ݿ��list��user��
+services目录为数据库操作的封装，list.js和user.js为主要逻辑代码，对应于数据库的list和user表
 
